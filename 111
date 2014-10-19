@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# apt-cache search autoscan
+# aptitude search ~n-ru$ ~n-ru-base     >>>>>>  поиск локали
+# deb пакеты вручную пишем: dpkg -i путь_к_пакету/имя_пакета.deb
+cp -ad /etc/apt/sources.list /etc/apt/sources.list.defaul  # бэкап sources.list в sources.list.defaul
+echo "# deb cdrom:[Debian GNU/Linux 7.0 _Kali_ - Official Snapshot i386 LIVE/INSTALL Binary 20130425-11:12]/ kali contrib main non-free" >> /etc/apt/sources.list
+echo "deb http://http.kali.org/kali kali main non-free contrib" >> /etc/apt/sources.list
+echo "deb-src http://http.kali.org/kali kali main non-free contrib" >> /etc/apt/sources.list
+echo "## Security updates" >> /etc/apt/sources.list
+echo "deb http://security.kali.org/kali-security kali/updates main contrib non-free" >> /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+apt-get update
+apt-get upgrade
+dpkg --configure -a
+apt-get autoclean
+apt-get autoremove
+apt-get install gnupg
+#apt-get install set 
+apt-get install apache2 
+apt-get install nano 
+apt-get install telnetd
+aptitude install sendmail
+apt-get install rar
+apt-get install unrar
+# echo "ru_RU.UTF-8 UTF-8" >> /var/lib/locales/supported.d/ru
+#locale-gen ru
+#locale
+#locale -a
+#sudo apt-get upgrade
+#sudo apt-get dist-upgrade
+#sudo apt-get install git-core
+#sudo git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
+echo
+echo "DONE" 
